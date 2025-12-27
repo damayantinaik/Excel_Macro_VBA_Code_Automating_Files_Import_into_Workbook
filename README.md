@@ -1,8 +1,8 @@
 # A Macro with VBA Code Automating Import of Text Files into an Workbook
 
-This project is about importing the text files from any location (such as local computer, OneDrive etc). 
+This project is about preparing a Macro importing multiple text files into an workbook from any location (such as local computer, OneDrive etc). 
 
-The text files that I’ll import will be in the same folder where my working excel workbook is located. 
+The text files that I'll import for this project will be in the same folder where my working excel workbook is located. 
 
 I created a Macro (procedure) with VBA code along with a function which together automated importing of multiple files, creating a new worksheet for each text files, named them as per the original text file name. The code also added condition to carry out the whole task without screen updating at every file addition except at the end.  
 
