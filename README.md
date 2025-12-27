@@ -10,6 +10,6 @@ The Macro enabled excel file with VBA code is available in the following links:
 
 [Excel file](https://github.com/damayantinaik/Excel_Macro_VBA_Code_Automating_Files_Import_into_Workbook/blob/main/Automating_Importing_Multiple_Text_Files_With_VBA_Code.xlsm)
 
-
+[VBA code](https://github.com/damayantinaik/Excel_Macro_VBA_Code_Automating_Files_Import_into_Workbook/blob/main/VBA_code_automating_text_files_import.txt)
 
 
