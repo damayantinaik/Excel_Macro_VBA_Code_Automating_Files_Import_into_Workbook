@@ -1,0 +1,56 @@
+'Preparing a Macro with VBA code to automate import of text file(s)
+
+Public Sub ImportTextFiles()
+
+'Create a variable textFile
+    Dim Textfile As Workbook
+    
+    'Create an array Openfiles()
+    Dim OpenFiles() As Variant
+    
+    Dim i As Integer
+    
+    'Uses a reusable function (function has been defined below this procedure)
+    OpenFiles = GetFiles()
+    
+    'Don't showing screen Updating (screen flickering)
+    Application.ScreenUpdating = False
+    
+    For i = 1 To Application.CountA(OpenFiles)
+
+        'Import the .txt file to TextFile
+        Set Textfile = Workbooks.Open(OpenFiles(i))
+           
+        'Copy the data from sheet1
+        Textfile.Sheets(1).Range("A1").CurrentRegion.Copy
+        
+        'Now, activate Workbook (i.e Book1, which is empty)
+        Workbooks(1).Activate
+        Workbooks(1).Worksheets.Add
+        
+        'Paste the data into active sheet of Book1
+        ActiveSheet.Paste
+        
+        'Name the new worksheet same as .txt file
+        ActiveSheet.Name = Textfile.Name
+        
+        'Clear the clipboard (i.e select no from yes/no of clipboard)
+        Application.CutCopyMode = False
+        
+        'Close .txt file
+        Textfile.Close
+    
+    Next i
+    
+    'Show screen updating at the end of the whole task
+    Application.ScreenUpdating = True
+
+End Sub
+-------------------------------------------------
+'Create a function to import file
+
+Public Function GetFiles() As Variant
+    
+    GetFiles = Application.GetOpenFilename(FileFilter:="Text files (*.txt), *.txt", Title:="Select file(s) to open", MultiSelect:=True)
+
+End Function
